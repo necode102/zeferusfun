@@ -2065,7 +2065,7 @@ end)
 -- telegram > zeferuswav <
 local ThirdPersonSection = MiscTab:AddSection({Name = "Misc", Position = "left"})
 ThirdPersonSection:AddToggle({
-    Name = "Enabled",
+    Name = "Enabled Third-Person",
     Default = false,
     Callback = function(value)
         ThirdPerson.Enabled = value
