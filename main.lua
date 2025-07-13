@@ -2410,10 +2410,7 @@ Ebobo2:AddKeybind({
     end,
 })
 
-Ebobo:AddParagraph({
-    Name = "Сonfig path",
-    Content = "Admin / Appdata / Roaming / ZEFERUS_HVH"
-})
+
 
 local infonaxui = Info:AddSection({Name = "Information", Position = "left"})
 infonaxui:AddParagraph({
