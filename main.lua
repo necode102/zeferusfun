@@ -1923,14 +1923,14 @@ Exploits111:AddToggle({
     Default = false,
     Callback = function(val)
         if val then
--- telegram > zeferuswav <
             local conn
             conn = RunService.Heartbeat:Connect(function()
                 if Mouse.Target then
                     local target = Mouse.Target.Parent
--- telegram > zeferuswav <
-                    if target:FindFirstChild("Humanoid") and Players:GetPlayerFromCharacter(target) then
--- telegram > zeferuswav <
+                    local targetPlayer = Players:GetPlayerFromCharacter(target)
+                    
+                    -- Team Check добавлен здесь
+                    if target:FindFirstChild("Humanoid") and targetPlayer and targetPlayer.Team ~= LocalPlayer.Team then
                         game:GetService("VirtualInputManager"):SendMouseButtonEvent(
                             Mouse.X, Mouse.Y, 0, true, game, 1
                         )
@@ -1941,15 +1941,9 @@ Exploits111:AddToggle({
                     end
                 end
             end)
-            
--- telegram > zeferuswav <
-            getgenv().AutoFireConnection = conn
-            print("AutoFire: ON")
         else
--- telegram > zeferuswav <
-            if getgenv().AutoFireConnection then
-                getgenv().AutoFireConnection:Disconnect()
-                print("AutoFire: OFF")
+            if conn then
+                conn:Disconnect()
             end
         end
     end
